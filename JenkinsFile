@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+               checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'GitHubCredendtials', url: 'https://github.com/Vivek0218/Terraform.git']])
+            }
+        }
+        
+         stage('Azure Login') {
+            steps {
+               sh 'az login --identity'
+            }
+        }
+        
+        stage('Terraform Init') {
+            steps {
+               sh 'terraform init'
+            }
+        }
+        
+         stage('Terraform Plan') {
+            steps {
+               sh 'terraform plan'
+            }
+        }
+        
+         stage('Terraform Apply') {
+            steps {
+               sh 'terraform apply --auto-approve';
+            }
+        }
+    }
+}
