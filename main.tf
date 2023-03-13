@@ -24,7 +24,7 @@ resource "azurerm_resource_group" "demo01" {
 
 # Create a Virtual Network
 resource "azurerm_virtual_network" "vnet01" {
-  name = "test_vnet01"
+  name = "${azurerm_resource_group.demo01.name}-test_vnet01"
   resource_group_name = azurerm_resource_group.demo01.name
   location = azurerm_resource_group.demo01.location
   address_space = ["10.10.0.0/16"]
