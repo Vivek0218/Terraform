@@ -12,8 +12,8 @@ terraform {
 provider "azurerm" {
   features {}
   use_msi = true
-  subscription_id = "a22c09bc-5167-4466-b7ef-d15f092a8b94"
-  tenant_id = "4d998499-a954-43fe-9f1e-8c593eea1fe1"
+  subscription_id = var.SubID
+  tenant_id = var.TentID
 }
 
 # Create a resource group
