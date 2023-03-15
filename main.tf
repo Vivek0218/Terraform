@@ -19,7 +19,7 @@ provider "azurerm" {
 # Create a resource group
 resource "azurerm_resource_group" "demo01" {
   name     = "terraform_rg"
-  location = var.location
+  location = var.region
 }
 
 # Create a Virtual Network

@@ -6,6 +6,6 @@ variable "TentID" {
 type = string
 }
 
-variable "location" {
+variable "region" {
   type = string
 }
